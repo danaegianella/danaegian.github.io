@@ -1,45 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Danae Gianella | Physics & Astronomy</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Notes · Estela Danae Gianella Davalos</title>
+<meta name="description" content="Personal blog and academic page of Estela Danae Gianella Davalos, physics student at UMSA, La Paz. Exoplanets, magnetism, control systems and 3D design.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,500;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b17; --bg2:#0d1428; --text:#e9ecf6; --muted:#8e98b4; --line:rgba(160,175,220,.16);
+  --accent:#e8b75d; --accent2:#7fa2ff; --card:rgba(16,23,46,.62); --todo:#fcd34d; --todo-bg:rgba(252,211,77,.12);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:light){
+  :root{--bg:#f6f4ee; --bg2:#ece8dc; --text:#161a2b; --muted:#566079; --line:rgba(30,40,80,.15);
+        --accent:#9a6a12; --accent2:#2b4fd8; --card:rgba(255,255,255,.7); --todo:#8a5a00; --todo-bg:rgba(200,140,0,.14)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,var(--bg2),var(--bg));color:var(--text);
+     font:300 1.15rem/1.7 var(--serif);-webkit-font-smoothing:antialiased}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 26px}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;backdrop-filter:blur(10px);
+    background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:54px;
+          font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase}
+nav .links{display:flex;gap:20px}
+nav a{color:var(--muted)} nav a:hover{color:var(--accent);text-decoration:none}
+.logo{color:var(--accent)!important}
+@media(max-width:700px){nav .links a:nth-child(n+4){display:none}}
+header{padding:150px 0 60px;min-height:92vh;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font:500 .75rem var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+h1{font:300 clamp(2.6rem,7.5vw,5.2rem)/1.02 var(--serif);margin:0;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--accent)}
+.sub{max-width:560px;color:var(--muted);margin:22px 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.btns a{padding:11px 18px;border:1px solid var(--line);border-radius:3px;color:var(--text);background:var(--card)}
+.btns a.main{background:var(--accent);color:#14100a;border-color:var(--accent)}
+.btns a:hover{border-color:var(--accent);text-decoration:none}
+.curve{margin-top:46px;border-top:1px solid var(--line);padding-top:12px}
+.curve canvas{width:100%;height:230px;display:block}
+.cap{font:400 .68rem var(--mono);letter-spacing:.1em;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+section{padding:70px 0 20px}
+.label{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;font:500 .75rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--accent);font-weight:500}
+.label::after{content:"";flex:1;height:1px;background:var(--line)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0}
+.stat{background:var(--bg);padding:20px 18px}
+.stat strong{display:block;font:300 2.4rem/1 var(--serif);color:var(--accent)}
+.stat span{font:400 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--accent);padding:22px 26px;margin-bottom:18px;
+      backdrop-filter:blur(6px)}
+.card h3{font:500 1.35rem/1.25 var(--serif);margin:0 0 4px}
+.meta{font:400 .72rem/1.6 var(--mono);letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+.card ul{margin:8px 0 0;padding-left:1.1em;font-size:1.02rem}
+.card li{margin:5px 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:400 .75rem var(--mono);border:1px solid var(--line);padding:6px 12px;border-radius:2px;background:var(--card)}
+.tags span:hover{border-color:var(--accent);color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.todo{background:var(--todo-bg);color:var(--todo);font:500 .72rem var(--mono);padding:2px 7px;border-radius:3px}
+.list li{margin:10px 0}
+footer{margin-top:70px;border-top:1px solid var(--line);padding:26px 0 48px;font:400 .72rem var(--mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
-
 <body>
+<canvas id="stars" aria-hidden="true"></canvas>
 
-    <h1>Danae Gianella</h1>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Field Notes</a>
+  <div class="links"><a href="#notes">Notes</a><a href="#about">About</a><a href="#research">Research</a><a href="#interests">Interests</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#recognitions">Recognitions</a><a href="#contact">Contact</a></div>
+</div></nav>
 
-    <h2>Physics & Astronomy</h2>
+<div class="wrap" id="top">
+<header>
+  <div class="eyebrow">A personal blog · Physics, exoplanets, magnetism &amp; design</div>
+  <h1>Field <em>Notes</em></h1>
+  <p class="sub">Personal blog and academic page of Estela Danae Gianella Davalos, physics student at UMSA, La Paz. I write about exoplanets, magnetism, control systems and 3D design, and about what I learn while observing, measuring and building.</p>
+  <div class="btns">
+    <a class="main" href="cv.pdf">Curriculum Vitae</a>
+    <a href="#research">Research</a>
+    <a href="https://github.com/Danae0405">GitHub</a>
+    <a href="https://www.linkedin.com/in/estela-danae-gianella-davalos-2a9636200">LinkedIn</a>
+  </div>
+  <div class="curve">
+    <canvas id="lc" aria-label="Animated magnetic dipole field lines and compass needles"></canvas>
+    <div class="cap"><span>Illustrative: magnetic dipole field lines and compass needles in a uniform field</span><span>Simulation, not real data</span></div>
+  </div>
+</header>
 
-    <p>
-        Physics undergraduate interested in astronomy,
-        astrophysics and space science.
-    </p>
+<section id="notes" class="rv">
+  <div class="label"><b>01</b> Latest notes</div>
+  <article class="card"><h3><span class="todo">post title</span></h3><div class="meta"><span class="todo">date</span> · Exoplanets</div><p style="margin:6px 0 0;font-size:1.02rem"><span class="todo">1–2 line summary · link to the full post</span></p></article>
+  <article class="card"><h3><span class="todo">post title</span></h3><div class="meta"><span class="todo">date</span> · Magnetism</div><p style="margin:6px 0 0;font-size:1.02rem"><span class="todo">1–2 line summary · link to the full post</span></p></article>
+  <article class="card"><h3><span class="todo">post title</span></h3><div class="meta"><span class="todo">date</span> · Observing</div><p style="margin:6px 0 0;font-size:1.02rem"><span class="todo">1–2 line summary · link to the full post</span></p></article>
+</section>
 
-    <h2>Research</h2>
+<section id="about" class="rv">
+  <div class="label"><b>02</b> About</div>
+  <p>I study physics at the Universidad Mayor de San Andrés and work within the O.R.B.I.T.A. program at the Cota Cota Astronomical Observatory. My main research interest is the detection and characterization of exoplanets through high-precision photometry. I built my observational foundation on pulsating variable stars, and I have also worked with the TTT-80 robotic telescope at Teide Observatory. My goal is to deepen my research training and contribute to the development of astronomy in Bolivia and Latin America. <span class="todo">add a personal line or photo</span></p>
+  <div class="stats">
+    <div class="stat"><strong>3</strong><span>valid nights, KZ Hya / TT Lyn</span></div>
+    <div class="stat"><strong>~1000</strong><span>photometric points per session</span></div>
+    <div class="stat"><strong>+40%</strong><span>viable asteroid detections</span></div>
+    <div class="stat"><strong>150+</strong><span>astrometry workshop participants</span></div>
+  </div>
+</section>
 
-    <p>
-        My research interests include observational astronomy,
-        variable stars, space weather and cosmic rays.
-    </p>
+<section id="research" class="rv">
+  <div class="label"><b>03</b> Research</div>
+  <div class="card">
+    <h3>Research direction: exoplanet transit photometry</h3>
+    <div class="meta">Main line of interest · building on my work in time-series photometry</div>
+    <ul>
+      <li>Detecting and characterizing transiting planets: differential photometry, systematics control, detrending and light-curve fitting.</li>
+      <li>Treating stellar variability and pulsation as a noise source to be modelled, a direct link with my work on δ Scuti and SX Phoenicis stars.</li>
+      <li>Secondary interest: photometric variability of brown dwarfs.</li>
+      <li><span class="todo">add a specific project, target or archive dataset (e.g. TESS) if you have one</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Foundation: photometric campaign on KZ Hydrae and TT Lyncis</h3>
+    <div class="meta">O.R.B.I.T.A. · Cota Cota Observatory, UMSA · Tutor: Dr. Roy Bustos · <span class="todo">year</span> – present</div>
+    <ul>
+      <li>Multi-session observations (Dec 2025 – Feb 2026) of an SX Phoenicis star (KZ Hya) and a δ Scuti star (TT Lyn) in Sloan g′, r′ and i′.</li>
+      <li>Pipeline: differential aperture photometry (AstroImageJ), Fourier and cubic-spline fits, Lomb–Scargle periodograms, and comparison with published periods.</li>
+      <li>Anomalous gap/jump in the KZ Hya light curve of 26 Dec 2025, supporting a binarity hypothesis (cf. Fu et al. 2008).</li>
+      <li>Custom Python scripts for post-processing; technical report written in LaTeX.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Remote observations with the TTT-80 robotic telescope</h3>
+    <div class="meta">Teide Observatory, Tenerife · <span class="todo">year</span></div>
+    <ul><li><span class="todo">describe observing program, targets and your role</span></li></ul>
+  </div>
+</section>
 
-    <h2>Projects</h2>
+<section id="interests" class="rv">
+  <div class="label"><b>04</b> Interests</div>
+  <div class="two">
+    <div class="card"><h3>Exoplanets</h3><div class="meta">Transits · detection methods</div>
+      <ul><li>Transit photometry and light-curve modelling.</li><li>Characterization of planets and substellar objects.</li></ul></div>
+    <div class="card"><h3>Magnetism</h3><div class="meta">Earth’s field · space weather · solar physics</div>
+      <ul><li>Magnetic phenomena, from laboratory experiments to planetary and solar scales.</li><li>Relevance to planetary environments and stellar activity.</li></ul></div>
+    <div class="card"><h3>Control systems</h3><div class="meta">Instrumentation · signal analysis</div>
+      <ul><li>ADC/DAC and microcontrollers (Arduino), FFT-based signal analysis in Matlab.</li><li>Automation of observing and measurement setups.</li></ul></div>
+    <div class="card"><h3>3D design</h3><div class="meta">SolidWorks · Blender · Onshape</div>
+      <ul><li>Mechanical modelling of detectors and observatory structures.</li><li>Cherenkov tank for ALPACA; observatory dome concept.</li></ul></div>
+  </div>
+</section>
 
-    <p>
-        Cherenkov detectors, astronomical photometry
-        and astronomical data analysis.
-    </p>
+<section id="projects" class="rv">
+  <div class="label"><b>05</b> Projects</div>
+  <div class="card">
+    <h3>Bolivian Asteroid Search Campaign</h3>
+    <div class="meta">National Project Coordinator · Oct 2023 – present · <a href="https://drive.google.com/file/d/1NjAEHUqYnDJPjH84yho9e2HlXzJQcrB5/view?usp=drivesdk">details</a></div>
+    <ul>
+      <li>Coordinated student teams detecting and reporting asteroids from IASC telescope images.</li>
+      <li>Implemented verification and reporting protocols for the Minor Planet Center.</li>
+      <li>Developed astrometry workshops with Astrometrica and Aladin.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Cherenkov tank design, ALPACA project</h3>
+    <div class="meta">3D design and modelling · Apr 2025 – present · <a href="https://alpaca-experiment.org">alpaca-experiment.org</a></div>
+    <ul>
+      <li>Designed Cherenkov tank models in SolidWorks, optimizing internal geometry for photon detection.</li>
+      <li>Integrated PMTs, power supplies and acquisition boards into the structure.</li>
+      <li>Adapted the design to high-altitude conditions (4700 m a.s.l.).</li>
+    </ul>
+  </div>
+</section>
 
-    <h2>Contact</h2>
+<section id="skills" class="rv">
+  <div class="label"><b>06</b> Skills</div>
+  <div class="two">
+    <div>
+      <div class="meta">Astronomy &amp; analysis</div>
+      <div class="tags"><span>AstroImageJ</span><span>Astrometrica</span><span>Aladin</span><span>Fourier analysis</span><span>Lomb–Scargle</span><span>Spline fitting</span></div>
+    </div>
+    <div>
+      <div class="meta">Programming &amp; design</div>
+      <div class="tags"><span>Python</span><span>NumPy / SciPy</span><span>C++</span><span>Matlab</span><span>Arduino</span><span>SolidWorks</span><span>Blender</span><span>Onshape</span><span>LaTeX</span></div>
+    </div>
+  </div>
+  <p class="meta" style="margin-top:22px">Languages: Spanish (native) · English (C1) · Italian (B1)</p>
+</section>
 
-    <p>
-        Email: your-email@example.com
-    </p>
+<section id="publications" class="rv">
+  <div class="label"><b>07</b> Publications &amp; talks</div>
+  <div class="card"><span class="todo">add reports, posters or papers: authors, title, venue, year, link</span></div>
+</section>
 
+<section id="recognitions" class="rv">
+  <div class="label"><b>08</b> Recognitions</div>
+  <ul class="list">
+    <li>Examination board member, competency exam FIS 132, UMSA Physics · Dec 2024</li>
+    <li>Speaker, “Charlando con científicas”, OWSD Bolivia · May 2024: “The role of women in observational astronomy”</li>
+    <li>Certificate, LaTeX update course, UMSA · Feb 2023</li>
+  </ul>
+</section>
+
+<section id="contact" class="rv">
+  <div class="label"><b>09</b> Contact</div>
+  <p><a href="mailto:egianellad@fcpn.edu.bo">egianellad@fcpn.edu.bo</a><br>La Paz, Bolivia</p>
+</section>
+
+<footer>© <span id="y"></span> Estela Danae Gianella Davalos</footer>
+</div>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* Reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Starfield */
+const sc=document.getElementById('stars'),sx=sc.getContext('2d');let stars=[];
+function sizeStars(){const d=devicePixelRatio||1;sc.width=innerWidth*d;sc.height=innerHeight*d;sx.setTransform(d,0,0,d,0,0);
+  stars=Array.from({length:Math.min(170,innerWidth/6)},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.2+.2,p:Math.random()*6.28,s:Math.random()*.0015+.0004}))}
+function drawStars(t){sx.clearRect(0,0,innerWidth,innerHeight);
+  const light=matchMedia('(prefers-color-scheme: light)').matches;sx.fillStyle=light?'#1c2a5a':'#ffffff';
+  for(const s of stars){sx.globalAlpha=(light?.25:.75)*(.45+.55*Math.sin(s.p+t*s.s));sx.beginPath();sx.arc(s.x,s.y,s.r,0,6.283);sx.fill()}
+  if(!reduce)requestAnimationFrame(drawStars)}
+sizeStars();addEventListener('resize',sizeStars);requestAnimationFrame(drawStars);
+
+/* Magnetism: dipole field lines (flowing) + compass needles in a uniform field */
+const lc=document.getElementById('lc'),lx=lc.getContext('2d');let W,H;
+function sizeLC(){const d=devicePixelRatio||1;W=lc.clientWidth;H=lc.clientHeight;lc.width=W*d;lc.height=H*d;lx.setTransform(d,0,0,d,0,0)}
+function drawLC(ms){
+  const al=reduce?.35:.55*Math.sin(ms*.00035),cx=W/2,cy=H/2,R=H*.3,ca=Math.cos(al),sa=Math.sin(al);
+  const line=css('--line'),acc=css('--accent'),acc2=css('--accent2'),mut=css('--muted');
+  lx.clearRect(0,0,W,H);
+  /* compass needles */
+  const k=Math.pow(1.6*R,3),step=36;
+  for(let x=step/2;x<W;x+=step)for(let y=step/2;y<H;y+=step){
+    const dx=x-cx,dy=y-cy,r=Math.hypot(dx,dy);if(r<R*.55)continue;
+    const rx=dx/r,ry=dy/r,md=ca*rx+sa*ry,q=k/(r*r*r);
+    const bx=1+q*(3*md*rx-ca),by=q*(3*md*ry-sa),b=Math.hypot(bx,by),ux=bx/b,uy=by/b,L=10;
+    lx.lineWidth=2;lx.lineCap='round';
+    lx.strokeStyle=acc;lx.globalAlpha=.9;lx.beginPath();lx.moveTo(x,y);lx.lineTo(x+ux*L,y+uy*L);lx.stroke();
+    lx.strokeStyle=mut;lx.globalAlpha=.55;lx.beginPath();lx.moveTo(x,y);lx.lineTo(x-ux*L,y-uy*L);lx.stroke();
+  }
+  /* dipole field lines r = L sin^2(theta), flowing dashes */
+  lx.globalAlpha=.8;lx.strokeStyle=acc2;lx.lineWidth=1.3;lx.setLineDash([7,9]);lx.lineDashOffset=reduce?0:-ms*.03;
+  for(const Lr of [.5,.75,1.05,1.4])for(const sg of [1,-1]){
+    lx.beginPath();
+    for(let i=0;i<=60;i++){const th=.14+(Math.PI-.28)*i/60,rr=Lr*Math.sin(th)**2,z=rr*Math.cos(th),rho=sg*rr*Math.sin(th);
+      const x=cx+(z*ca-rho*sa)*R,y=cy+(z*sa+rho*ca)*R;i?lx.lineTo(x,y):lx.moveTo(x,y)}
+    lx.stroke();}
+  lx.setLineDash([]);
+  /* bar magnet */
+  lx.save();lx.translate(cx,cy);lx.rotate(al);lx.globalAlpha=1;
+  lx.fillStyle=acc;lx.fillRect(0,-8,34,16);lx.fillStyle=acc2;lx.fillRect(-34,-8,34,16);
+  lx.strokeStyle=css('--bg');lx.lineWidth=1.5;lx.strokeRect(-34,-8,68,16);
+  lx.fillStyle=css('--bg');lx.font='700 10px monospace';lx.textAlign='center';lx.textBaseline='middle';
+  lx.fillText('N',17,0);lx.fillText('S',-17,0);lx.restore();
+  lx.globalAlpha=1;
+  if(!reduce)requestAnimationFrame(drawLC)}
+sizeLC();addEventListener('resize',()=>{sizeLC();if(reduce)drawLC(0)});requestAnimationFrame(drawLC);
+</script>
 </body>
-
 </html>
