@@ -71,7 +71,7 @@ const FIELD_PHOTOS = [
     date: "2026"
   }
   {
-    src: "foto7.jpeg",
+    src: "foto7jpeg.jpeg",
     caption: "3D & design notes",
     date: "2026"
   }
