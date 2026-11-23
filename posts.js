@@ -1,4 +1,5 @@
-/* 1. ENTRADAS DEL BLOG (solo texto y artículos) */
+
+/* ENTRADAS DEL BLOG */
 const BLOG_POSTS = [
   {
     id: 1,
@@ -38,7 +39,7 @@ const BLOG_POSTS = [
   }
 ];
 
-/* 2. GALERÍA DE FOTOS INDEPENDIENTE (reemplaza los nombres por tus fotos en main) */
+/* GALERÍA DE FOTOGRAFÍAS */
 const FIELD_PHOTOS = [
   {
     src: "foto1.jpeg",
@@ -59,35 +60,35 @@ const FIELD_PHOTOS = [
     src: "foto4.jpeg",
     caption: "3D & design notes",
     date: "2026"
-  }
+  },
   {
     src: "foto5.jpeg",
-    caption: "3D & design notes",
+    caption: "Research activity",
     date: "2026"
-  }
+  },
   {
     src: "foto6.jpeg",
-    caption: "3D & design notes",
+    caption: "Astronomy outreach",
     date: "2026"
-  }
+  },
   {
-    src: "foto7jpeg.jpeg",
-    caption: "3D & design notes",
+    src: "foto7.jpeg",
+    caption: "Observational work",
     date: "2026"
-  }
+  },
   {
     src: "foto8.jpeg",
-    caption: "3D & design notes",
+    caption: "Scientific project",
     date: "2026"
-  }
+  },
   {
     src: "foto9.jpeg",
-    caption: "3D & design notes",
+    caption: "Instrumentation",
     date: "2026"
-  }
+  },
   {
     src: "foto10.jpeg",
-    caption: "3D & design notes",
+    caption: "Field notes",
     date: "2026"
   }
 ];
