@@ -851,4 +851,85 @@ h2 {
   .modal-dialog {
     padding: 38px 22px 25px;
   }
+
+
+
+  
+/* =========================================
+   PROFILE PHOTO — HERO SECTION
+========================================= */
+
+.profile-photo-wrap {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.profile-photo-frame {
+  width: min(350px, 80%);
+  height: 410px;
+  padding: 9px;
+  border: 1px solid rgba(142, 213, 232, .35);
+  background: rgba(13, 32, 51, .65);
+  position: relative;
+}
+
+.profile-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 17px -17px -17px 17px;
+  border: 1px solid rgba(142, 213, 232, .2);
+  z-index: -1;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.85);
+}
+
+.profile-photo-label {
+  color: var(--subtle);
+  font: .58rem var(--mono);
+  letter-spacing: .14em;
+  text-align: center;
+}
+
+/* RESPONSIVE PROFILE PHOTO */
+
+@media (max-width: 850px) {
+  .profile-photo-wrap {
+    min-height: 360px;
+    margin-top: 25px;
+  }
+
+  .profile-photo-frame {
+    width: min(310px, 75%);
+    height: 360px;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile-photo-wrap {
+    min-height: 300px;
+    margin-top: 35px;
+  }
+
+  .profile-photo-frame {
+    width: 75%;
+    height: 310px;
+  }
+
+  .profile-photo-label {
+    font-size: .5rem;
+  }
+}
+
 }
